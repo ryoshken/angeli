@@ -6,13 +6,6 @@ import styles from "./page.module.css";
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-const notebookPages = [
-  "Welcome to your pixel notebook!",
-  "Page 2: You can put any text here.",
-  "Page 3: Add your notes, secrets, or recipes!",
-  "Page 4: The end. Have a sweet day!"
-];
-
 export default function Home() {
   const [step, setStep] = useState<'start' | 'focus' | 'success'>('start');
   const [password, setPassword] = useState("");
