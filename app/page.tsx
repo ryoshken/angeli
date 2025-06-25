@@ -3,6 +3,9 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 const notebookPages = [
   "Welcome to your pixel notebook!",
   "Page 2: You can put any text here.",
@@ -64,8 +67,8 @@ export default function Home() {
     playIcon.style.display = 'none';
     pauseIcon.style.display = '';
     eqInterval = setInterval(() => {
-      Array.from(eq.children).forEach((bar: any) => {
-        bar.style.height = Math.random() * 32 + 16 + 'px';
+      Array.from(eq.children).forEach((bar) => {
+        (bar as HTMLElement).style.height = Math.random() * 32 + 16 + 'px';
       });
     }, 180);
 
@@ -75,8 +78,8 @@ export default function Home() {
         playIcon.style.display = 'none';
         pauseIcon.style.display = '';
         eqInterval = setInterval(() => {
-          Array.from(eq.children).forEach((bar: any) => {
-            bar.style.height = Math.random() * 32 + 16 + 'px';
+          Array.from(eq.children).forEach((bar) => {
+            (bar as HTMLElement).style.height = Math.random() * 32 + 16 + 'px';
           });
         }, 180);
       } else {
@@ -84,8 +87,8 @@ export default function Home() {
         playIcon.style.display = '';
         pauseIcon.style.display = 'none';
         clearInterval(eqInterval);
-        Array.from(eq.children).forEach((bar: any) => {
-          bar.style.height = '16px';
+        Array.from(eq.children).forEach((bar) => {
+          (bar as HTMLElement).style.height = '16px';
         });
       }
     };
@@ -93,16 +96,16 @@ export default function Home() {
       playIcon.style.display = '';
       pauseIcon.style.display = 'none';
       clearInterval(eqInterval);
-      Array.from(eq.children).forEach((bar: any) => {
-        bar.style.height = '16px';
+      Array.from(eq.children).forEach((bar) => {
+        (bar as HTMLElement).style.height = '16px';
       });
     };
     audio.onplay = () => {
       playIcon.style.display = 'none';
       pauseIcon.style.display = '';
       eqInterval = setInterval(() => {
-        Array.from(eq.children).forEach((bar: any) => {
-          bar.style.height = Math.random() * 32 + 16 + 'px';
+        Array.from(eq.children).forEach((bar) => {
+          (bar as HTMLElement).style.height = Math.random() * 32 + 16 + 'px';
         });
       }, 180);
     };
