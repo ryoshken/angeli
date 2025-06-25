@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #845954;
+  --foreground: #b2c2a2;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,9 +21,16 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 16px;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+  line-height: 1.4;
+  cursor: none !important;
+}
+
+body, a, button, .clickable, input, textarea, select {
+  cursor: none !important;
 }
 
 * {
@@ -35,8 +44,40 @@ a {
   text-decoration: none;
 }
 
+button {
+  font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
+}
+
+.custom-cursor {
+  position: fixed;
+  left: 0; top: 0;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  background: url('/cursor.png') no-repeat center center / contain;
+  z-index: 9999;
+  transition: none;
+}
+
+.custom-cursor.pointer {
+  background: url('/pointer.png') no-repeat center center / contain;
+}
+
+html, body, *, *:hover, *:active, *:focus {
+  cursor: none !important;
 }
