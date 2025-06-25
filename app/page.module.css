@@ -86,9 +86,10 @@
   font-family: 'Press Start 2P', monospace;
   color: var(--text-soft);
   font-size: 0.9rem;
-  margin-bottom: 18px;
-  text-align: left;
+  margin: 32px 0 18px 0;
+  text-align: center;
   width: 100%;
+  padding-left: 8px;
 }
 
 .pixelArtWrapper {
@@ -97,7 +98,7 @@
   border: 3px solid var(--border);
   border-radius: 10px;
   padding: 16px 16px 8px 16px;
-  margin-bottom: 18px;
+  margin-bottom: 0;
   box-shadow: 0 2px 8px #a67c5222;
 }
 
@@ -118,13 +119,14 @@
   padding: 12px 0;
   width: 90%;
   max-width: 260px;
-  margin-top: 8px;
+  margin-top: 4px;
   cursor: pointer;
   box-shadow: 0 2px 8px #a67c5222;
   transition: background 0.2s, color 0.2s;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin: 4px auto 0 auto;
 }
 
 .startBtn:hover {
@@ -452,23 +454,24 @@
   gap: 14px;
   align-items: center;
   justify-content: center;
+  margin-top: 18px;
 }
 
 .passwordInput {
   font-family: 'Press Start 2P', monospace;
   font-size: 1rem;
-  background: var(--card-bg);
-  color: var(--foreground);
+  background: #f7efe6;
+  color: #000;
   border: 2px solid var(--border);
   border-radius: 6px;
   padding: 10px 12px;
   width: 90%;
   max-width: 260px;
-  margin-bottom: 6px;
+  margin-bottom: 0;
   outline: none;
   box-shadow: 0 2px 8px #a67c5222;
   letter-spacing: 1px;
-  transition: border 0.2s;
+  transition: border 0.2s, background 0.2s;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -477,7 +480,23 @@
 
 .passwordInput:focus {
   border: 2px solid var(--accent);
-  background: #fff9f3;
+  background: #fff;
+}
+
+.passwordInput::placeholder {
+  color: #bfae9c;
+  opacity: 1;
+}
+
+.errorMsg {
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #d32f2f;
+  font-size: 1rem;
+  margin-top: 8px;
+  margin-bottom: 0;
+  text-align: center;
+  letter-spacing: 0.2px;
+  font-weight: 600;
 }
 
 /* Remove border for start screen GIF */
@@ -486,6 +505,8 @@
   box-shadow: none;
   padding: 0;
   background: transparent;
+  margin-top: 32px;
+  margin-bottom: 0;
 }
 
 /* Make GIF larger on start screen */
@@ -500,7 +521,8 @@
   border: none;
   box-shadow: none;
   padding: 0;
-  margin-bottom: 18px;
+  margin-top: 48px;
+  margin-bottom: 0;
 }
 
 .overlayIcon {
@@ -531,7 +553,8 @@
   cursor: pointer;
 }
 .cardCoin {
-  left: -18px;
+  left: 0;
+  top: 56px;
 }
 .cardBook {
   right: -18px;
@@ -633,6 +656,7 @@
   text-align: center;
   box-sizing: border-box;
   overflow-y: auto;
+  margin-top: 24px;
 }
 
 .notebookText:hover {
@@ -1074,4 +1098,248 @@
 .pixel-art {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
+}
+
+.lockIconLink:hover img {
+  transform: scale(1.12) rotate(-2deg);
+  box-shadow: 0 0 0 3px #845954, 0 0 0 7px #fff, 0 0 0 11px #845954;
+  border-radius: 0;
+  background: #e2c7b7;
+  image-rendering: pixelated;
+}
+.lockIconLink:hover span {
+  color: #845954;
+  text-shadow: 0 1px 0 #fff, 0 2px 0 #845954;
+}
+
+.pixelHeartLoader {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: url('/heart.png') center center no-repeat;
+  background-size: contain;
+  animation: pixelHeartBounce 0.7s infinite alternate cubic-bezier(.68,-0.55,.27,1.55);
+  image-rendering: pixelated;
+}
+
+@keyframes pixelHeartBounce {
+  0% { transform: scale(1) translateY(0); }
+  60% { transform: scale(1.1) translateY(-8px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+.countdownBox {
+  font-family: 'Press Start 2P', monospace;
+  color: #4a2c23;
+  text-align: center;
+  margin-bottom: 6px;
+  font-size: 12px;
+  background: #e2c7b7;
+  border-radius: 0;
+  padding: 16px 12px 14px 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  border: 4px solid #845954;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 6px #845954;
+  text-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  line-height: 1.5;
+  user-select: none;
+  width: 240px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+.countdownBox:hover {
+  transform: scale(1.04) rotate(-1deg);
+  box-shadow: 0 0 0 4px #ffb86c, 0 0 0 10px #845954;
+  border-color: #ffb86c;
+  background: #f7e6d7;
+}
+
+.openButton {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1rem;
+  background: #ffb86c;
+  color: #4a2c23;
+  border: 4px solid #845954;
+  border-radius: 0;
+  padding: 10px 28px;
+  margin: 32px auto 0 auto;
+  display: block;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 6px #845954;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+}
+.openButton:hover {
+  background: #ffe6b3;
+  color: #a67c52;
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 0 0 6px #ffb86c, 0 0 0 12px #845954;
+}
+.openButton.opening {
+  animation: openPop 0.5s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+}
+@keyframes openPop {
+  0% { transform: scale(1) rotate(0); }
+  60% { transform: scale(1.15) rotate(2deg); }
+  100% { transform: scale(0.7) rotate(-8deg); opacity: 0; }
+}
+
+.confettiBurst {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+.confettiPiece {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  opacity: 0.85;
+  animation: confettiPop 1.2s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+  will-change: transform, opacity;
+}
+@keyframes confettiPop {
+  0% { opacity: 0; transform: scale(0.7) translate(0,0); }
+  60% { opacity: 1; }
+  100% { opacity: 0; transform: scale(1.2) translate(var(--dx, 0), var(--dy, 0)); }
+}
+
+.fadePopIn {
+  animation: fadePopIn 0.7s cubic-bezier(.68,-0.55,.27,1.55) both;
+}
+@keyframes fadePopIn {
+  0% { opacity: 0; transform: scale(0.7); }
+  70% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.birthdayBurstRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 6px;
+  gap: 2px;
+}
+.birthdayLetter {
+  width: 32px;
+  height: 32px;
+  margin: 0 1px;
+  opacity: 0;
+  transform: scale(0.7) translateY(20px);
+  animation: birthdayPop 0.5s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+}
+.birthdayLetter.delay-0 { animation-delay: 0.05s; }
+.birthdayLetter.delay-1 { animation-delay: 0.15s; }
+.birthdayLetter.delay-2 { animation-delay: 0.25s; }
+.birthdayLetter.delay-3 { animation-delay: 0.35s; }
+.birthdayLetter.delay-4 { animation-delay: 0.45s; }
+.birthdayLetter.delay-5 { animation-delay: 0.55s; }
+.birthdayLetter.delay-6 { animation-delay: 0.65s; }
+.birthdayLetter.delay-7 { animation-delay: 0.75s; }
+.birthdayLetter.delay-8 { animation-delay: 0.85s; }
+.birthdayLetter.delay-9 { animation-delay: 0.95s; }
+.birthdayLetter.delay-10 { animation-delay: 1.05s; }
+.birthdayLetter.delay-11 { animation-delay: 1.15s; }
+.birthdayLetter.delay-12 { animation-delay: 1.25s; }
+.birthdayLetter.delay-13 { animation-delay: 1.35s; }
+@keyframes birthdayPop {
+  0% { opacity: 0; transform: scale(0.7) translateY(20px); }
+  60% { opacity: 1; transform: scale(1.15) translateY(-6px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.pixelBrowserWindow {
+  background: #fff8f0;
+  border: 4px solid #a67c52;
+  border-radius: 12px;
+  box-shadow: 0 6px 32px #a67c5233, 0 0 0 6px #e2c7b7;
+  min-width: 320px;
+  max-width: 420px;
+  min-height: 220px;
+  padding: 0 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  margin: 0 auto;
+}
+.pixelBrowserHeader {
+  width: 100%;
+  height: 38px;
+  background: #f7e6d7;
+  border-bottom: 3px solid #a67c52;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 12px 0 0;
+  box-sizing: border-box;
+  position: relative;
+}
+.pixelBrowserControls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.pixelControlBtn {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #a67c52;
+  border-radius: 4px;
+  background: #e2c7b7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 0 #fff8;
+  margin-left: 2px;
+  margin-right: 2px;
+  position: relative;
+}
+.pixelControlBtn.min {
+  background: #ffe6b3;
+}
+.pixelControlBtn.full {
+  background: #bfae9c;
+}
+.pixelControlBtn.close {
+  background: #e7a6a1;
+}
+.pixelControlBtnIcon {
+  width: 10px;
+  height: 10px;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.pixelBrowserWindow.startScreen {
+  min-width: 320px;
+  max-width: 340px;
+  min-height: 480px;
+  max-height: none;
+  height: auto;
+  width: auto;
+  padding: 0 0 32px 0;
+}
+
+.pixelBrowserWindow.secretLetter {
+  min-width: 640px;
+  max-width: 99vw;
+  width: 640px;
+  min-height: 700px;
+  padding-bottom: 32px;
+  box-sizing: border-box;
 }

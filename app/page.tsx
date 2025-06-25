@@ -107,40 +107,29 @@ export default function Home() {
     };
   }, [showStickers]);
 
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => setError("") , 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [error]);
+
   return (
     <div className={styles.pixelBg}>
       {step !== 'success' && (
-        <div className={step === 'start' ? `${styles.centerCard} ${styles.startScreen}` : styles.centerCard}>
-          <div className={styles.windowHeader}>
-            {step === 'start' && <span className={styles.title}>Hello Geli!</span>}
-            {step === 'start' && (
-              <span className={styles.windowControls}>
-                <span className={styles.minimize}>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="7" width="8" height="2" rx="1" fill="#4a2c23" />
-                  </svg>
-                </span>
-                <span className={styles.close}>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="4" y1="4" x2="10" y2="10" stroke="#4a2c23" strokeWidth="2" strokeLinecap="round" />
-                    <line x1="10" y1="4" x2="4" y2="10" stroke="#4a2c23" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                </span>
+        <div className={styles.pixelBrowserWindow + (step === 'start' ? ' ' + styles.startScreen : '')}>
+          <div className={styles.pixelBrowserHeader}>
+            <div className={styles.pixelBrowserControls}>
+              <span className={styles.pixelControlBtn + ' ' + styles.min} title="Minimize">
+                <svg className={styles.pixelControlBtnIcon} viewBox="0 0 10 10"><rect x="2" y="7" width="6" height="2" fill="#a67c52"/></svg>
               </span>
-            )}
-            {step === 'focus' && (
-              <>
-                <span className={styles.cardIcon + ' ' + styles.cardCoin}
-                  tabIndex={0}
-                  role="button"
-                  onClick={() => setShowStickers(true)}
-                  style={{ pointerEvents: 'auto' }}
-                  title="Show Song Player"
-                >
-                  <img src="/bea.png" alt="Bea Icon" width="70" height="80" className="pixel-art" />
-                </span>
-              </>
-            )}
+              <span className={styles.pixelControlBtn + ' ' + styles.full} title="Fullscreen">
+                <svg className={styles.pixelControlBtnIcon} viewBox="0 0 10 10"><rect x="2" y="2" width="6" height="6" fill="#a67c52"/></svg>
+              </span>
+              <span className={styles.pixelControlBtn + ' ' + styles.close} title="Close">
+                <svg className={styles.pixelControlBtnIcon} viewBox="0 0 10 10"><line x1="2" y1="2" x2="8" y2="8" stroke="#a67c52" strokeWidth="2"/><line x1="8" y1="2" x2="2" y2="8" stroke="#a67c52" strokeWidth="2"/></svg>
+              </span>
+            </div>
           </div>
           {step === 'start' && (
             <>
@@ -164,6 +153,14 @@ export default function Home() {
           )}
           {step === 'focus' && (
             <>
+              <span className={styles.cardIcon + ' ' + styles.cardCoin} style={{ top: 32, left: 0, position: 'absolute' }}
+                tabIndex={0}
+                role="button"
+                onClick={() => setShowStickers(true)}
+                title="Show Song Player"
+              >
+                <img src="/bea.png" alt="Bea Icon" width="70" height="80" className="pixel-art" />
+              </span>
               <div className={styles.pixelArtWrapper + ' ' + styles.noBorder}>
                 <Image
                   src="/password.gif"
@@ -205,55 +202,102 @@ export default function Home() {
         </div>
       )}
       {step === 'success' && (
-        <div className={styles.centerCard}>
-          <Image
-            src="/book.png"
-            alt="Notebook"
-            width={72}
-            height={54}
-            className={styles.notebookBookImg}
-          />
-          <div
-            className={styles.notebookText}
-            tabIndex={0}
-            role="button"
-            onClick={() => setShowLetter(true)}
-            style={{ cursor: 'pointer' }}
-            title="Click to view letter"
-          >
-            <div className={styles.notebookRow}>
-              <Image
-                src={`/open${notebookPage === 0 ? '' : notebookPage + 1}.gif`}
-                alt={`Open Gif Page ${notebookPage + 1}`}
-                width={96}
-                height={96}
-                className={styles.notebookCuteGif}
-                unoptimized
-              />
-              <div className={styles.notebookClickHint}>Click me to open</div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+          {notebookPage < 4 && (
+            <div className={styles.pixelBrowserWindow}>
+              <div className={styles.pixelBrowserHeader}>
+                <div className={styles.pixelBrowserControls}>
+                  <span className={styles.pixelControlBtn + ' ' + styles.min} title="Minimize">
+                    <svg className={styles.pixelControlBtnIcon} viewBox="0 0 10 10"><rect x="2" y="7" width="6" height="2" fill="#a67c52"/></svg>
+                  </span>
+                  <span className={styles.pixelControlBtn + ' ' + styles.full} title="Fullscreen">
+                    <svg className={styles.pixelControlBtnIcon} viewBox="0 0 10 10"><rect x="2" y="2" width="6" height="6" fill="#a67c52"/></svg>
+                  </span>
+                  <span className={styles.pixelControlBtn + ' ' + styles.close} title="Close">
+                    <svg className={styles.pixelControlBtnIcon} viewBox="0 0 10 10"><line x1="2" y1="2" x2="8" y2="8" stroke="#a67c52" strokeWidth="2"/><line x1="8" y1="2" x2="2" y2="8" stroke="#a67c52" strokeWidth="2"/></svg>
+                  </span>
+                </div>
+              </div>
+              <div
+                className={styles.notebookText}
+                tabIndex={0}
+                role="button"
+                onClick={() => setShowLetter(true)}
+                style={{ cursor: 'pointer' }}
+                title="Click to view letter"
+              >
+                <div className={styles.notebookRow}>
+                  <Image
+                    src={`/open${notebookPage === 0 ? '' : notebookPage + 1}.gif`}
+                    alt={`Open Gif Page ${notebookPage + 1}`}
+                    width={96}
+                    height={96}
+                    className={styles.notebookCuteGif}
+                    unoptimized
+                  />
+                  <div className={styles.notebookClickHint}>
+                    Click me to open
+                  </div>
+                </div>
+              </div>
+              <div className={styles.notebookNav}>
+                <button
+                  className={styles.notebookNavBtn}
+                  onClick={() => setNotebookPage(p => Math.max(0, p - 1))}
+                  disabled={notebookPage === 0}
+                >
+                  &lt;
+                </button>
+                <div className={styles.notebookPageCol}>
+                  <span className={styles.notebookPageLabel}>Page</span>
+                  <span className={styles.notebookPageNum}>{notebookPage + 1} / 5</span>
+                </div>
+                <button
+                  className={styles.notebookNavBtn}
+                  onClick={() => setNotebookPage(p => Math.min(4, p + 1))}
+                  disabled={notebookPage === 4}
+                >
+                  &gt;
+                </button>
+              </div>
             </div>
-          </div>
-          <div className={styles.notebookNav}>
-            <button
-              className={styles.notebookNavBtn}
-              onClick={() => setNotebookPage(p => Math.max(0, p - 1))}
-              disabled={notebookPage === 0}
-            >
-              &lt;
-            </button>
-            <div className={styles.notebookPageCol}>
-              <span className={styles.notebookPageLabel}>Page</span>
-              <span className={styles.notebookPageNum}>{notebookPage + 1} / 4</span>
+          )}
+          {notebookPage === 4 && (
+            <div className={styles.pixelBrowserWindow}>
+              <div className={styles.pixelBrowserHeader}>
+                <div className={styles.pixelBrowserControls}>
+                  <span className={styles.pixelControlBtn + ' ' + styles.min} title="Minimize">
+                    <svg className={styles.pixelControlBtnIcon} viewBox="0 0 10 10"><rect x="2" y="7" width="6" height="2" fill="#a67c52"/></svg>
+                  </span>
+                  <span className={styles.pixelControlBtn + ' ' + styles.full} title="Fullscreen">
+                    <svg className={styles.pixelControlBtnIcon} viewBox="0 0 10 10"><rect x="2" y="2" width="6" height="6" fill="#a67c52"/></svg>
+                  </span>
+                  <span className={styles.pixelControlBtn + ' ' + styles.close} title="Close">
+                    <svg className={styles.pixelControlBtnIcon} viewBox="0 0 10 10"><line x1="2" y1="2" x2="8" y2="8" stroke="#a67c52" strokeWidth="2"/><line x1="8" y1="2" x2="2" y2="8" stroke="#a67c52" strokeWidth="2"/></svg>
+                  </span>
+                </div>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, height: '100%', minHeight: 320 }}>
+                <a
+                  href="/secret"
+                  className={styles.lockIconLink}
+                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textDecoration: 'none', cursor: 'pointer', margin: '0 auto' }}
+                  title="Go to Secret Page"
+                >
+                  <img
+                    src="/locked.png"
+                    alt="Locked Icon"
+                    width={72}
+                    height={72}
+                    style={{ marginBottom: 10, imageRendering: 'pixelated', transition: 'transform 0.15s' }}
+                    className="pixel-art"
+                  />
+                  <span style={{ fontFamily: '"Press Start 2P", monospace', color: '#a67c52', fontSize: 20, letterSpacing: 1.5, marginTop: 12 }}>Secret Page</span>
+                </a>
+              </div>
             </div>
-            <button
-              className={styles.notebookNavBtn}
-              onClick={() => setNotebookPage(p => Math.min(3, p + 1))}
-              disabled={notebookPage === 3}
-            >
-              &gt;
-            </button>
-          </div>
-          {showLetter && (
+          )}
+          {showLetter && notebookPage < 4 && (
             <div className={styles.letterModalOverlay}>
               <div className={styles.letterModal}>
                 <Image

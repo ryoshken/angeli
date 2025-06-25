@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CustomCursor from "./CustomCursor";
 
 export const metadata: Metadata = {
   title: "Hello Geli!",
@@ -17,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        <div className="custom-cursor"></div>
+        <CustomCursor />
       </body>
     </html>
   );
