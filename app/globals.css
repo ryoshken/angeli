@@ -1,8 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 :root {
-  --background: #845954;
-  --foreground: #b2c2a2;
+  --background: #e7d8c9;
+  --foreground: #5a4634;
+  --card-bg: #fff8f0;
+  --accent: #a67c52;
+  --accent-light: #d9b99b;
+  --text-soft: #bfae9c;
+  --border: #a67c52;
+  --border-dashed: #d9b99b;
+  --window-min: #bfae9c;
+  --window-close: #e7a6a1;
 }
 
 @media (prefers-color-scheme: dark) {
