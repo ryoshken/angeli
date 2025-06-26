@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Link from 'next/link';
 import styles from '../page.module.css';
 
 const UNLOCK_DATE = new Date('2025-09-08T00:00:00+08:00'); // Manila time (for testing unlock)
@@ -34,7 +34,6 @@ export default function SecretPage() {
   const [opening, setOpening] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const [showContinue, setShowContinue] = useState(false);
-  const [showOpenUI, setShowOpenUI] = useState(true);
   const [showLetterPage, setShowLetterPage] = useState(false);
   const [letterPage, setLetterPage] = useState(1);
 
@@ -87,7 +86,6 @@ export default function SecretPage() {
     setOpening(true);
     setShowConfetti(true);
     setShowContinue(false);
-    setShowOpenUI(false);
     setTimeout(() => setShowConfetti(false), 6000);
     setTimeout(() => setShowContinue(true), 6000);
   }
@@ -163,7 +161,7 @@ export default function SecretPage() {
                   justifyContent: 'center',
                   flexDirection: 'column',
                 }}>
-                  Happiest Birthday litol beabadoobee🤍, of course i wont forget about your birthday. you are already 22 years old, anyways i wish you all the best, even tho we're not together anymore, i always wish you the best 🤍 my heart for you is infinity ( hoping that i could on from you pero i doubt that i will, you always have a special place in my heart) you were the best thing that i have ever happen in my life. iim sorry if i treated you bad. i cant really tell if u have forgiven me already, but deep down i know that you dont. im sorry for everything i did and make you feel through those times na we are together pa, tbh i dont miss the memories that we have, i miss the person i had once before, YOU. everything u have did for me, i really appreciated it even tho i dont say it to you often but i did, and if u ever feel tired, just to let u know that im always here for u, im not expecting for a comeback (dang i wish), but anyways happy birthday Mary Angeli, the ms. future doctor. dont forget to a smile on your face and be good always.
+                  Happiest Birthday litol beabadoobee🤍, of course i wont forget about your birthday. you are already 22 years old, anyways i wish you all the best, even tho we&apos;re not together anymore, i always wish you the best 🤍 my heart for you is infinity ( hoping that i could on from you pero i doubt that i will, you always have a special place in my heart) you were the best thing that i have ever happen in my life. iim sorry if i treated you bad. i cant really tell if u have forgiven me already, but deep down i know that you dont. im sorry for everything i did and make you feel through those times na we are together pa, tbh i dont miss the memories that we have, i miss the person i had once before, YOU. everything u have did for me, i really appreciated it even tho i dont say it to you often but i did, and if u ever feel tired, just to let u know that im always here for u, im not expecting for a comeback (dang i wish), but anyways happy birthday Mary Angeli, the ms. future doctor. dont forget to a smile on your face and be good always.
                 </div>
                 <button className={styles.openButton} style={{ margin: '48px auto 64px auto' }} onClick={handleNextLetterPage}>Next</button>
               </>
@@ -193,13 +191,13 @@ export default function SecretPage() {
                   justifyContent: 'center',
                   flexDirection: 'column',
                 }}>
-                  stay safe always and stay healthy, i know u love maalat foods pero keep it maintained, i wish i could still taste ur dalgona coffee huhu, and im praying for a good recovery still for carly and say hello for me to trevor soafer cute ngani, your smile is the most cutiest and comfy thing i've seen in my layp, i love everything about you and that will includes ur flaws. ur existence matter and enough for me, so please take care of urself always at pupunta ka pa dream country mo and that would be new zealand, sorry di ko na mabibigay ung tulips that u want, i love that u are still gentle despite everything, i will never the sweet girl that i once liked, be happy cause smiling fits u well, even tho im not reason to it anymore, happy birthday
+                  stay safe always and stay healthy, i know u love maalat foods pero keep it maintained, i wish i could still taste ur dalgona coffee huhu, and im praying for a good recovery still for carly and say hello for me to trevor soafer cute ngani, your smile is the most cutiest and comfy thing i&apos;ve seen in my layp, i love everything about you and that will includes ur flaws. ur existence matter and enough for me, so please take care of urself always at pupunta ka pa dream country mo and that would be new zealand, sorry di ko na mabibigay ung tulips that u want, i love that u are still gentle despite everything, i will never the sweet girl that i once liked, be happy cause smiling fits u well, even tho im not reason to it anymore, happy birthday
 
 if i had one wish? i wish i could simply turn back the clock when we first met and take back every single mistake i made along the way that made you not want me anymore.
                 </div>
                 <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginBottom: 64, marginTop: 48 }}>
                   <button className={styles.openButton} style={{ margin: 0, minWidth: 90 }} onClick={handlePrevLetterPage}>Back</button>
-                  <a href="/" className={styles.openButton} style={{ margin: 0, minWidth: 90 }}>Finish</a>
+                  <Link href="/" className={styles.openButton} style={{ margin: 0, minWidth: 90 }}>Finish</Link>
                 </div>
               </>
             )}
