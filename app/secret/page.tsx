@@ -95,14 +95,6 @@ export default function SecretPage() {
     setLetterPage(1);
   }
 
-  function handleNextLetterPage() {
-    setLetterPage(2);
-  }
-
-  function handlePrevLetterPage() {
-    setLetterPage(1);
-  }
-
   return (
     <div className={styles.pixelBg}>
       {showLoader && !error ? (
