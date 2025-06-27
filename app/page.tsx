@@ -144,6 +144,7 @@ export default function Home() {
                   height={220}
                   className={styles.pixelArt}
                   priority
+                  draggable={false}
                 />
               </div>
               <button className={styles.startBtn} onClick={() => setStep('focus')}>
@@ -159,7 +160,7 @@ export default function Home() {
                 onClick={() => setShowStickers(true)}
                 title="Show Song Player"
               >
-                <img src="/bea.png" alt="Bea Icon" width="70" height="80" className="pixel-art" />
+                <img src="/bea.png" alt="Bea Icon" width="70" height="80" className="pixel-art" draggable={false} />
               </span>
               <div className={styles.pixelArtWrapper + ' ' + styles.noBorder}>
                 <Image
@@ -169,6 +170,7 @@ export default function Home() {
                   height={260}
                   className={styles.pixelArt}
                   priority
+                  draggable={false}
                 />
               </div>
               <form
@@ -203,7 +205,7 @@ export default function Home() {
       )}
       {step === 'success' && (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
-          {notebookPage < 4 && (
+          {notebookPage < 3 && (
             <div className={styles.pixelBrowserWindow}>
               <div className={styles.pixelBrowserHeader}>
                 <div className={styles.pixelBrowserControls}>
@@ -234,6 +236,7 @@ export default function Home() {
                     height={96}
                     className={styles.notebookCuteGif}
                     unoptimized
+                    draggable={false}
                   />
                   <div className={styles.notebookClickHint}>
                     Click me to open
@@ -250,19 +253,19 @@ export default function Home() {
                 </button>
                 <div className={styles.notebookPageCol}>
                   <span className={styles.notebookPageLabel}>Page</span>
-                  <span className={styles.notebookPageNum}>{notebookPage + 1} / 5</span>
+                  <span className={styles.notebookPageNum}>{notebookPage + 1} / 4</span>
                 </div>
                 <button
                   className={styles.notebookNavBtn}
-                  onClick={() => setNotebookPage(p => Math.min(4, p + 1))}
-                  disabled={notebookPage === 4}
+                  onClick={() => setNotebookPage(p => Math.min(3, p + 1))}
+                  disabled={notebookPage === 3}
                 >
                   &gt;
                 </button>
               </div>
             </div>
           )}
-          {notebookPage === 4 && (
+          {notebookPage === 3 && (
             <div className={styles.pixelBrowserWindow}>
               <div className={styles.pixelBrowserHeader}>
                 <div className={styles.pixelBrowserControls}>
@@ -281,23 +284,25 @@ export default function Home() {
                 <a
                   href="/secret"
                   className={styles.lockIconLink}
-                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textDecoration: 'none', cursor: 'pointer', margin: '0 auto' }}
+                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textDecoration: 'none', cursor: 'pointer', margin: '0 auto', userSelect: 'none' }}
                   title="Go to Secret Page"
+                  tabIndex={0}
                 >
                   <img
                     src="/locked.png"
                     alt="Locked Icon"
                     width={72}
                     height={72}
-                    style={{ marginBottom: 10, imageRendering: 'pixelated', transition: 'transform 0.15s' }}
+                    style={{ marginBottom: 10, imageRendering: 'pixelated', transition: 'transform 0.15s', userSelect: 'none' }}
                     className="pixel-art"
+                    draggable={false}
                   />
-                  <span style={{ fontFamily: '"Press Start 2P", monospace', color: '#a67c52', fontSize: 20, letterSpacing: 1.5, marginTop: 12 }}>Secret Page</span>
+                  <span style={{ fontFamily: '"Press Start 2P", monospace', color: '#a67c52', fontSize: 20, letterSpacing: 1.5, marginTop: 12, userSelect: 'none' }}>Secret Page</span>
                 </a>
               </div>
             </div>
           )}
-          {showLetter && notebookPage < 4 && (
+          {showLetter && notebookPage < 3 && (
             <div className={styles.letterModalOverlay}>
               <div className={styles.letterModal}>
                 <Image
@@ -307,6 +312,8 @@ export default function Home() {
                   height={300}
                   className={styles.letterImg}
                   unoptimized
+                  style={{ userSelect: 'none' }}
+                  draggable={false}
                 />
                 <button className={styles.letterCloseBtn} onClick={() => setShowLetter(false)}>
                   Close

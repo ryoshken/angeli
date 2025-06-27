@@ -45,6 +45,9 @@ body, a, button, .clickable, input, textarea, select {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
 }
 
 a {
@@ -88,4 +91,14 @@ p {
 
 html, body, *, *:hover, *:active, *:focus {
   cursor: none !important;
+}
+
+input, textarea, select {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -ms-user-select: text !important;
+}
+
+::selection {
+  background: transparent !important;
 }

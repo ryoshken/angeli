@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+/* Removed global selectors for user-select and ::selection. These will be moved to globals.css */
+
 .pixelBg {
   min-height: 100vh;
   background: var(--background) url('/bg.jpg') center center / cover no-repeat;

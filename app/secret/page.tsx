@@ -149,7 +149,7 @@ export default function SecretPage() {
                   width: 600,
                   maxWidth: '99vw',
                   maxHeight: 520,
-                  margin: '48px auto 40px auto',
+                  margin: '24px auto 40px auto',
                   textAlign: 'center',
                   boxShadow: '0 2px 8px #a67c5222',
                   whiteSpace: 'pre-line',
@@ -161,44 +161,9 @@ export default function SecretPage() {
                   justifyContent: 'center',
                   flexDirection: 'column',
                 }}>
-                  Happiest Birthday litol beabadoobee🤍, of course i wont forget about your birthday. you are already 22 years old, anyways i wish you all the best, even tho we&apos;re not together anymore, i always wish you the best 🤍 my heart for you is infinity ( hoping that i could on from you pero i doubt that i will, you always have a special place in my heart) you were the best thing that i have ever happen in my life. im sorry if i treated you bad. i know that u wont like the letter i sent about assumption that u like someone else but actually the part of the letter is for me, i just want to hurt myself badly to the point i can forget u but it doesnt seem to work at all, im sorry that i may seem not a good assumption but i know what i said is in fact a false accusation and u wouldn&apos;t such a thing. it will be a late answer but yep. im sorry for everything i did and make you feel through those times na we are together pa, tbh i dont miss the memories that we have, i miss the person i had once before, YOU. everything u have did for me, i really appreciated it even tho i dont say it to you often but i did, and if u ever feel tired, just to let u know that im always here for u, im not expecting for a comeback (dang i wish), but anyways happy birthday Mary Angeli, the ms. future doctor. dont forget to a smile on your face and be good always.
+                  Soafer Happiest Birthday litol beabadoobee, grabe 22 ka na ate eme, so ayon nga i just wanna say happy birthday and wish you all the best, i know we are no longer together anymore pero that doesn&apos;t mean i don&apos;t get to greet you on ur special day, u still hold a special in my heart nohhh baka magalit :P, i just really hope that you are doing fine and having a proper body clock by now at alam kong napapadalas na ung puyat,  diba u want to fix it like u said before, ngl i do kinda miss you anong kinda SOAFER actually, kamusta ka na? wala na me balita sayo but i keep supporting u from afar and will never stop caring even the world is hard on you, at don&apos;t be hard on urself ahh, alagaan mo always sarili mo. alam kong maalat lover ka eh. sana makatikim ng graham at dalgona coffee mo haist. sorry by the time its ur day i wont get to send u a tulip but let&apos;s see, dami kong sinabi noh TwT. pero ayon happy birthday ulit and coffee soon eme. the future doctor yarn HAHAHAHAHAHAHA, dont forget to put a smile on ur face cuz it really fits you!! you are appreciated and im always proud of you!!
                 </div>
-                <button className={styles.openButton} style={{ margin: '48px auto 64px auto' }} onClick={handleNextLetterPage}>Next</button>
-              </>
-            )}
-            {letterPage === 2 && (
-              <>
-                <div style={{
-                  fontFamily: 'VT323, Fira Mono, monospace',
-                  color: '#845954',
-                  fontSize: 13,
-                  background: '#fff8f0',
-                  border: '2px dashed #d9b99b',
-                  borderRadius: 10,
-                  padding: '18px 24px',
-                  width: 600,
-                  maxWidth: '99vw',
-                  maxHeight: 520,
-                  margin: '48px auto 40px auto',
-                  textAlign: 'center',
-                  boxShadow: '0 2px 8px #a67c5222',
-                  whiteSpace: 'pre-line',
-                  overflowY: 'auto',
-                  lineHeight: 1.7,
-                  letterSpacing: 1.1,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexDirection: 'column',
-                }}>
-                  stay safe always and stay healthy, i know u love maalat foods pero keep it maintained, i wish i could still taste ur dalgona coffee huhu, and im praying for a good recovery still for carly and say hello for me to trevor soafer cute ngani, your smile is the most cutiest and comfy thing i&apos;ve seen in my layp, i love everything about you and that will includes ur flaws. ur existence matter and enough for me, so please take care of urself always at pupunta ka pa dream country mo and that would be new zealand, sorry di ko na mabibigay ung tulips that u want, i love that u are still gentle despite everything, i will never the sweet girl that i once liked, be happy cause smiling fits u well, even tho im not reason to it anymore, happy birthday
-
-if i had one wish? i wish i could simply turn back the clock when we first met and take back every single mistake i made along the way that made you not want me anymore.
-                </div>
-                <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginBottom: 64, marginTop: 48 }}>
-                  <button className={styles.openButton} style={{ margin: 0, minWidth: 90 }} onClick={handlePrevLetterPage}>Back</button>
-                  <Link href="/" className={styles.openButton} style={{ margin: 0, minWidth: 90 }}>Finish</Link>
-                </div>
+                <Link href="/" className={styles.openButton} style={{ margin: '48px auto 64px auto', minWidth: 90 }}>Finish</Link>
               </>
             )}
           </div>
