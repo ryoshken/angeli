@@ -4,9 +4,9 @@ import CustomCursor from "./CustomCursor";
 
 export const metadata: Metadata = {
   title: "Hello Geli!",
-  description: "Start a study timer and bake some sweets!",
-  keywords: "sugar, focus, study, timer, pixel art, retro",
-  authors: [{ name: "Sugar & Focus" }],
+  description: "a letter to you",
+  keywords: "geli",
+  authors: [{ name: "migo" }],
 };
 
 export default function RootLayout({
